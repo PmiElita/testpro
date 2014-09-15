@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+  <constant name="struts.devMode" value="true" />
+ 
+  <package name="default" namespace="/" extends="struts-default">
+ 
+ <action name="registrPageAction" >
+        <result >/pages/registr.jsp</result>
+    </action>  
+     <action name="editPageAction" >
+        <result >/pages/edit.jsp</result>
+    </action>    
+     <action name="personalPageAction" >
+        <result >/pages/personal.jsp</result>
+    </action>   
+     <action name="succregPageAction" >
+        <result >/pages/succreg.jsp</result>
+    </action>     
+    <action name="addUserAction" 
+    class="user.action.UserAction" method="execute" >
+       <result name="success">/pages/succreg.jsp</result>
+    </action>
+ 
+    <action name="loginAction" 
+    class="user.action.LoginAction" method="execute" >
+        <result name="success">/pages/personal.jsp</result>
+        <result name="error">/index.jsp</result>
+    </action>       
+        <action name="logoutAction" 
+    class="user.action.LoginAction" method="logout" >
+        <result name="success">/index.jsp</result>
+    </action>  
+   
+        <action name="changePersonalData" 
+    class="user.action.UserAction" method="updateData" >
+        <result name="success">/pages/edit.jsp</result>
+    </action> 
+  </package>    
+</struts>
